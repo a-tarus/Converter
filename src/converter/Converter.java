@@ -30,7 +30,7 @@ public class Converter extends javax.swing.JFrame {
         Panel = new javax.swing.JPanel();
         TitleLabel = new javax.swing.JLabel();
         TempTextField = new javax.swing.JTextField();
-        CelciusLabel = new javax.swing.JLabel();
+        CelsiusLabel = new javax.swing.JLabel();
         ConverterButton = new javax.swing.JButton();
         FahrenheitLabel = new javax.swing.JLabel();
 
@@ -38,23 +38,29 @@ public class Converter extends javax.swing.JFrame {
         setBackground(new java.awt.Color(153, 153, 153));
         getContentPane().setLayout(new java.awt.CardLayout());
 
-        Panel.setBackground(new java.awt.Color(153, 153, 153));
-        Panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        Panel.setBackground(new java.awt.Color(204, 204, 204));
+        Panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Panel.setForeground(new java.awt.Color(153, 153, 153));
         Panel.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 24)); // NOI18N
         Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        TitleLabel.setFont(new java.awt.Font("Broadway", 1, 36)); // NOI18N
+        TitleLabel.setFont(new java.awt.Font("Calisto MT", 1, 36)); // NOI18N
         TitleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TitleLabel.setText("Temperature Converter");
         Panel.add(TitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 12, 563, -1));
 
         TempTextField.setFont(new java.awt.Font("Lucida Fax", 0, 20)); // NOI18N
-        Panel.add(TempTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 71, 173, 25));
+        TempTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TempTextFieldActionPerformed(evt);
+            }
+        });
+        Panel.add(TempTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 71, 173, 30));
 
-        CelciusLabel.setFont(new java.awt.Font("Lucida Fax", 0, 20)); // NOI18N
-        CelciusLabel.setText("CELCIUS ");
-        Panel.add(CelciusLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 71, 167, -1));
+        CelsiusLabel.setFont(new java.awt.Font("Lucida Fax", 0, 20)); // NOI18N
+        CelsiusLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        CelsiusLabel.setText("CELSIUS ");
+        Panel.add(CelsiusLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 71, 167, -1));
 
         ConverterButton.setBackground(new java.awt.Color(0, 221, 137));
         ConverterButton.setFont(new java.awt.Font("Lucida Fax", 1, 20)); // NOI18N
@@ -66,7 +72,9 @@ public class Converter extends javax.swing.JFrame {
         });
         Panel.add(ConverterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 114, 173, 37));
 
-        FahrenheitLabel.setFont(new java.awt.Font("Lucida Fax", 0, 20)); // NOI18N
+        FahrenheitLabel.setBackground(new java.awt.Color(200, 198, 198));
+        FahrenheitLabel.setFont(new java.awt.Font("Lucida Fax", 1, 20)); // NOI18N
+        FahrenheitLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         FahrenheitLabel.setText("FAHRENHEIT");
         FahrenheitLabel.setToolTipText("");
         Panel.add(FahrenheitLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 114, 167, 37));
@@ -83,6 +91,13 @@ public class Converter extends javax.swing.JFrame {
     FahrenheitLabel.setText(temp + " Fahrenheit");
         
     }//GEN-LAST:event_ConverterButtonActionPerformed
+
+    private void TempTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TempTextFieldActionPerformed
+        // TODO add your handling code here:
+         int temp = (int)((Double.parseDouble(TempTextField.getText()))
+            * 1.8 + 32);
+    FahrenheitLabel.setText(temp + " Fahrenheit");
+    }//GEN-LAST:event_TempTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -120,7 +135,7 @@ public class Converter extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel CelciusLabel;
+    private javax.swing.JLabel CelsiusLabel;
     private javax.swing.JButton ConverterButton;
     private javax.swing.JLabel FahrenheitLabel;
     private javax.swing.JPanel Panel;
