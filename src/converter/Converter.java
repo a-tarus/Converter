@@ -35,67 +35,54 @@ public class Converter extends javax.swing.JFrame {
         FahrenheitLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 153, 153));
         getContentPane().setLayout(new java.awt.CardLayout());
 
+        Panel.setBackground(new java.awt.Color(153, 153, 153));
         Panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        Panel.setForeground(new java.awt.Color(153, 153, 153));
         Panel.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 24)); // NOI18N
+        Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TitleLabel.setFont(new java.awt.Font("Broadway", 1, 36)); // NOI18N
         TitleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TitleLabel.setText("Temperature Converter");
+        Panel.add(TitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 12, 563, -1));
 
         TempTextField.setFont(new java.awt.Font("Lucida Fax", 0, 20)); // NOI18N
+        Panel.add(TempTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 71, 173, 25));
 
         CelciusLabel.setFont(new java.awt.Font("Lucida Fax", 0, 20)); // NOI18N
         CelciusLabel.setText("CELCIUS ");
+        Panel.add(CelciusLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 71, 167, -1));
 
+        ConverterButton.setBackground(new java.awt.Color(0, 221, 137));
         ConverterButton.setFont(new java.awt.Font("Lucida Fax", 1, 20)); // NOI18N
         ConverterButton.setText("CONVERT");
+        ConverterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConverterButtonActionPerformed(evt);
+            }
+        });
+        Panel.add(ConverterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 114, 173, 37));
 
         FahrenheitLabel.setFont(new java.awt.Font("Lucida Fax", 0, 20)); // NOI18N
         FahrenheitLabel.setText("FAHRENHEIT");
         FahrenheitLabel.setToolTipText("");
-
-        javax.swing.GroupLayout PanelLayout = new javax.swing.GroupLayout(Panel);
-        Panel.setLayout(PanelLayout);
-        PanelLayout.setHorizontalGroup(
-            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelLayout.createSequentialGroup()
-                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(TitleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE))
-                    .addGroup(PanelLayout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ConverterButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(TempTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(41, 41, 41)
-                        .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(FahrenheitLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(CelciusLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
-        );
-        PanelLayout.setVerticalGroup(
-            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(TitleLabel)
-                .addGap(18, 18, 18)
-                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(TempTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(CelciusLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(FahrenheitLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ConverterButton, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
-                .addContainerGap(178, Short.MAX_VALUE))
-        );
+        Panel.add(FahrenheitLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 114, 167, 37));
 
         getContentPane().add(Panel, "Converter ");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ConverterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConverterButtonActionPerformed
+        // TODO add your handling code here:
+        int temp = (int)((Double.parseDouble(TempTextField.getText()))
+            * 1.8 + 32);
+    FahrenheitLabel.setText(temp + " Fahrenheit");
+        
+    }//GEN-LAST:event_ConverterButtonActionPerformed
 
     /**
      * @param args the command line arguments
