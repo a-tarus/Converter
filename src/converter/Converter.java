@@ -33,6 +33,10 @@ public class Converter extends javax.swing.JFrame {
         CelsiusLabel = new javax.swing.JLabel();
         ConverterButton = new javax.swing.JButton();
         FahrenheitLabel = new javax.swing.JLabel();
+        TempTextField1 = new javax.swing.JTextField();
+        FahrenheitLabel1 = new javax.swing.JLabel();
+        ConverterButton1 = new javax.swing.JButton();
+        CelsiusLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 153));
@@ -46,7 +50,7 @@ public class Converter extends javax.swing.JFrame {
 
         TitleLabel.setFont(new java.awt.Font("Calisto MT", 1, 36)); // NOI18N
         TitleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TitleLabel.setText("Temperature Converter");
+        TitleLabel.setText("TEMPERATURE CONVERTER");
         Panel.add(TitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 12, 563, -1));
 
         TempTextField.setFont(new java.awt.Font("Lucida Fax", 0, 20)); // NOI18N
@@ -55,42 +59,60 @@ public class Converter extends javax.swing.JFrame {
                 TempTextFieldActionPerformed(evt);
             }
         });
-        Panel.add(TempTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 71, 173, 30));
+        Panel.add(TempTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 71, 200, 30));
 
-        CelsiusLabel.setFont(new java.awt.Font("Lucida Fax", 0, 20)); // NOI18N
+        CelsiusLabel.setFont(new java.awt.Font("Lucida Fax", 1, 20)); // NOI18N
         CelsiusLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         CelsiusLabel.setText("CELSIUS ");
         Panel.add(CelsiusLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 71, 167, -1));
 
         ConverterButton.setBackground(new java.awt.Color(0, 221, 137));
         ConverterButton.setFont(new java.awt.Font("Lucida Fax", 1, 20)); // NOI18N
-        ConverterButton.setText("CONVERT");
+        ConverterButton.setText("CONVERTS TO");
         ConverterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConverterButtonActionPerformed(evt);
             }
         });
-        Panel.add(ConverterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 114, 173, 37));
+        Panel.add(ConverterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 114, 200, 37));
 
         FahrenheitLabel.setBackground(new java.awt.Color(200, 198, 198));
         FahrenheitLabel.setFont(new java.awt.Font("Lucida Fax", 1, 20)); // NOI18N
         FahrenheitLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        FahrenheitLabel.setText("FAHRENHEIT");
+        FahrenheitLabel.setText("Fahrenheit ");
         FahrenheitLabel.setToolTipText("");
-        Panel.add(FahrenheitLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 114, 167, 37));
+        Panel.add(FahrenheitLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 167, 40));
+
+        TempTextField1.setFont(new java.awt.Font("Lucida Fax", 0, 20)); // NOI18N
+        TempTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TempTextField1ActionPerformed(evt);
+            }
+        });
+        Panel.add(TempTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 200, 30));
+
+        FahrenheitLabel1.setFont(new java.awt.Font("Lucida Fax", 1, 20)); // NOI18N
+        FahrenheitLabel1.setText("FAHRENHEIT  ");
+        Panel.add(FahrenheitLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 160, 30));
+
+        ConverterButton1.setBackground(new java.awt.Color(0, 204, 255));
+        ConverterButton1.setFont(new java.awt.Font("Lucida Fax", 1, 20)); // NOI18N
+        ConverterButton1.setText("CONVERTS TO");
+        ConverterButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConverterButton1ActionPerformed(evt);
+            }
+        });
+        Panel.add(ConverterButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 200, 40));
+
+        CelsiusLabel1.setFont(new java.awt.Font("Lucida Fax", 1, 20)); // NOI18N
+        CelsiusLabel1.setText("Celsius");
+        Panel.add(CelsiusLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 130, 40));
 
         getContentPane().add(Panel, "Converter ");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ConverterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConverterButtonActionPerformed
-        // TODO add your handling code here:
-        int temp = (int)((Double.parseDouble(TempTextField.getText()))
-            * 1.8 + 32);
-    FahrenheitLabel.setText(temp + " Fahrenheit");
-        
-    }//GEN-LAST:event_ConverterButtonActionPerformed
 
     private void TempTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TempTextFieldActionPerformed
         // TODO add your handling code here:
@@ -98,6 +120,28 @@ public class Converter extends javax.swing.JFrame {
             * 1.8 + 32);
     FahrenheitLabel.setText(temp + " Fahrenheit");
     }//GEN-LAST:event_TempTextFieldActionPerformed
+
+    private void ConverterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConverterButtonActionPerformed
+        // TODO add your handling code here:
+        int temp = (int)((Double.parseDouble(TempTextField.getText()))
+            * 1.8 + 32);
+        FahrenheitLabel.setText(temp + " Fahrenheit");
+
+    }//GEN-LAST:event_ConverterButtonActionPerformed
+
+    private void TempTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TempTextField1ActionPerformed
+        // TODO add your handling code here:
+        int temp = (int)((Double.parseDouble(TempTextField1.getText()))
+                * 1.8 - 0);
+        CelsiusLabel1.setText(temp + " Celsius");
+    }//GEN-LAST:event_TempTextField1ActionPerformed
+
+    private void ConverterButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConverterButton1ActionPerformed
+        // TODO add your handling code here:
+          int temp = (int)((Double.parseDouble(TempTextField1.getText()))
+                 * 1.8 - 0);
+        CelsiusLabel1.setText(temp + " Celsius");
+    }//GEN-LAST:event_ConverterButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,10 +180,14 @@ public class Converter extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CelsiusLabel;
+    private javax.swing.JLabel CelsiusLabel1;
     private javax.swing.JButton ConverterButton;
+    private javax.swing.JButton ConverterButton1;
     private javax.swing.JLabel FahrenheitLabel;
+    private javax.swing.JLabel FahrenheitLabel1;
     private javax.swing.JPanel Panel;
     private javax.swing.JTextField TempTextField;
+    private javax.swing.JTextField TempTextField1;
     private javax.swing.JLabel TitleLabel;
     // End of variables declaration//GEN-END:variables
 }
