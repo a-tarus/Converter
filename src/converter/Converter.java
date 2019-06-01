@@ -131,15 +131,15 @@ public class Converter extends javax.swing.JFrame {
 
     private void TempTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TempTextField1ActionPerformed
         // TODO add your handling code here:
-        int temp = (int)((Double.parseDouble(TempTextField1.getText()))
-                * 1.8 - 0);
+        int temp = (int)((Double.parseDouble(TempTextField1.getText())- 32)
+                * 1.8);
         CelsiusLabel1.setText(temp + " Celsius");
     }//GEN-LAST:event_TempTextField1ActionPerformed
 
     private void ConverterButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConverterButton1ActionPerformed
         // TODO add your handling code here:
-          int temp = (int)((Double.parseDouble(TempTextField1.getText()))
-                 * 1.8 - 0);
+          int temp = (int)((Double.parseDouble(TempTextField1.getText())- 32)
+                * 1.8);
         CelsiusLabel1.setText(temp + " Celsius");
     }//GEN-LAST:event_ConverterButton1ActionPerformed
 
