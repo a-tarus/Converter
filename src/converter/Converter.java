@@ -5,6 +5,11 @@
  */
 package converter;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;  
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  *
  * @author amoki
@@ -37,6 +42,7 @@ public class Converter extends javax.swing.JFrame {
         FahrenheitLabel1 = new javax.swing.JLabel();
         ConverterButton1 = new javax.swing.JButton();
         CelsiusLabel1 = new javax.swing.JLabel();
+        datelabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 153));
@@ -109,6 +115,9 @@ public class Converter extends javax.swing.JFrame {
         CelsiusLabel1.setText("Celsius");
         Panel.add(CelsiusLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 130, 40));
 
+        datelabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        Panel.add(datelabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 160, 20));
+
         getContentPane().add(Panel, "Converter ");
 
         pack();
@@ -143,6 +152,13 @@ public class Converter extends javax.swing.JFrame {
         CelsiusLabel1.setText(temp + " Celsius");
     }//GEN-LAST:event_ConverterButton1ActionPerformed
 
+    private void datelabel (java.awt.event.ActionEvent evt){
+     Date date = Calendar.getInstance().getTime();  
+                DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");  
+                String strDate = dateFormat.format(date);  
+                System.out.println(strDate); 
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -177,6 +193,7 @@ public class Converter extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CelsiusLabel;
@@ -189,5 +206,6 @@ public class Converter extends javax.swing.JFrame {
     private javax.swing.JTextField TempTextField;
     private javax.swing.JTextField TempTextField1;
     private javax.swing.JLabel TitleLabel;
+    private javax.swing.JLabel datelabel;
     // End of variables declaration//GEN-END:variables
 }
