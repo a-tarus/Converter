@@ -5,9 +5,8 @@
  */
 package converter;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;  
-import java.util.Calendar;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -42,7 +41,6 @@ public class Converter extends javax.swing.JFrame {
         FahrenheitLabel1 = new javax.swing.JLabel();
         ConverterButton1 = new javax.swing.JButton();
         CelsiusLabel1 = new javax.swing.JLabel();
-        datelabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 153));
@@ -115,9 +113,6 @@ public class Converter extends javax.swing.JFrame {
         CelsiusLabel1.setText("Celsius");
         Panel.add(CelsiusLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 130, 40));
 
-        datelabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        Panel.add(datelabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 160, 20));
-
         getContentPane().add(Panel, "Converter ");
 
         pack();
@@ -127,14 +122,14 @@ public class Converter extends javax.swing.JFrame {
         // TODO add your handling code here:
          int temp = (int)((Double.parseDouble(TempTextField.getText()))
             * 1.8 + 32);
-    FahrenheitLabel.setText(temp + " Fahrenheit");
+    FahrenheitLabel.setText(temp + "°Fahrenheit");
     }//GEN-LAST:event_TempTextFieldActionPerformed
 
     private void ConverterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConverterButtonActionPerformed
         // TODO add your handling code here:
         int temp = (int)((Double.parseDouble(TempTextField.getText()))
             * 1.8 + 32);
-        FahrenheitLabel.setText(temp + " Fahrenheit");
+        FahrenheitLabel.setText(temp + " °Fahrenheit");
 
     }//GEN-LAST:event_ConverterButtonActionPerformed
 
@@ -142,21 +137,21 @@ public class Converter extends javax.swing.JFrame {
         // TODO add your handling code here:
         int temp = (int)((Double.parseDouble(TempTextField1.getText())- 32)
                 * 1.8);
-        CelsiusLabel1.setText(temp + " Celsius");
+        CelsiusLabel1.setText(temp + " °Celsius");
     }//GEN-LAST:event_TempTextField1ActionPerformed
 
     private void ConverterButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConverterButton1ActionPerformed
         // TODO add your handling code here:
           int temp = (int)((Double.parseDouble(TempTextField1.getText())- 32)
                 * 1.8);
-        CelsiusLabel1.setText(temp + " Celsius");
+        CelsiusLabel1.setText(temp + " °Celsius");
     }//GEN-LAST:event_ConverterButton1ActionPerformed
 
-    private void datelabel (java.awt.event.ActionEvent evt){
-     Date date = Calendar.getInstance().getTime();  
-                DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");  
-                String strDate = dateFormat.format(date);  
-                System.out.println(strDate); 
+
+ private void DatePane (java.awt.event.ActionEvent evt) throws ParseException{
+    String sDate1="31/12/1998";  
+        Date date1 = new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);  
+        System.out.println(sDate1+"\t"+date1); 
     }
     
     /**
@@ -206,6 +201,5 @@ public class Converter extends javax.swing.JFrame {
     private javax.swing.JTextField TempTextField;
     private javax.swing.JTextField TempTextField1;
     private javax.swing.JLabel TitleLabel;
-    private javax.swing.JLabel datelabel;
     // End of variables declaration//GEN-END:variables
 }
